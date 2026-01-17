@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #ffecd2);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            transition: background 1s;
+        }
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background: #fff;
+            border: 2px solid #ff6b9d;
+            border-radius: 10px;
+            margin: 50px auto;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid #fff;
+            border-top: 10px solid #ff6b9d;
+        }
+        .letter {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .flowers {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/5f2g3.png') repeat, linear-gradient(135deg, #ffeaa7, #fab1a0);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click the envelope to open your love letter! 💌</h1>
+    <div class="envelope" id="envelope"></div>
+    <div class="letter" id="letter">
+        <p>Dear Arshii,</p>
+        <p>You make my heart skip a beat! Being with you is like a dream come true. Will you be mine forever? 😘</p>
+        <p>Love, Your Secret Admirer</p>
+    </div>
+    <div class="flowers" id="flowers"></div>
+
+    <audio id="music" src="https://www.soundjay.com/misc/sounds/lovers-rock-tv-girl.mp3" preload="auto"></audio>
+
+    <script>
+        const envelope = document.getElementById('envelope');
+        const letter = document.getElementById('letter');
+        const flowers = document.getElementById('flowers');
+        const music = document.getElementById('music');
+
+        envelope.addEventListener('click', () => {
+            letter.style.display = 'block';
+            flowers.style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffeaa7, #fab1a0)';
+            music.play();
+        });
+    </script>
+</body>
+</html>
